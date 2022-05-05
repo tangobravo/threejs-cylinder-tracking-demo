@@ -2,7 +2,7 @@ import * as THREE from "three";
 import * as ZapparThree from "@zappar/zappar-threejs";
 import "./style.css";
 
-const targetImagePath = new URL("./example-tracking-image.zpt", import.meta.url).href;
+const targetImagePath = new URL("./example-tracking-image-cylinder.zpt", import.meta.url).href;
 
 // ZapparThree provides a LoadingManager that shows a progress bar while
 // the assets are downloaded
@@ -46,7 +46,7 @@ const box = new THREE.Mesh(
     new THREE.BoxBufferGeometry(),
     new THREE.MeshStandardMaterial({opacity:0.9, transparent: true})
 );
-box.position.set(0, 0, 0.5);
+box.position.set(0, 0, 0);
 trackerGroup.add(box);
 
 scene.add(camera);
