@@ -44,10 +44,19 @@ scene.add(trackerGroup);
 // Add some content
 const box = new THREE.Mesh(
     new THREE.BoxBufferGeometry(),
-    new THREE.MeshBasicMaterial()
+    new THREE.MeshStandardMaterial({opacity:0.9, transparent: true})
 );
 box.position.set(0, 0, 0.5);
 trackerGroup.add(box);
+
+scene.add(camera);
+
+// Add a directional light straight out of the camera
+let light = new THREE.DirectionalLight();
+camera.add(light);
+camera.add(light.target);
+light.position.set(0,0,0);
+light.target.position.set(0,0,-1);
 
 // Set up our render loop
 function render() {
